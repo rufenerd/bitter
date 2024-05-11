@@ -216,8 +216,6 @@ const Pcr = () => {
     return <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
         <div>{`Temperature: ${temp}ºC`}</div>
         <div>{`Replication Factor: ${factor}x`}</div>
-        <div>{unlockTier}</div>
-
         <ActionMenu
             setActive={handleNewActive}
             unlockTier={unlockTier}
