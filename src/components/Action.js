@@ -1,6 +1,6 @@
-const Action = ({ text, onClick }) => {
+const Action = ({ locked, text, onClick }) => {
     return <div
-        onClick={onClick}
+        onClick={locked ? () => { } : onClick}
         style={{
             cursor: 'pointer',
             width: '150px',
@@ -13,7 +13,9 @@ const Action = ({ text, onClick }) => {
             justifyContent: 'center',
             alignItems: 'center',
             fontSize: '20px'
-        }}><span>{text}</span></div>
+        }}><span style={{
+            color: locked ? '#999' : '#000'
+        }}>{text + (locked ? " LOCKED!" : "")}</span></div>
 }
 
 export default Action

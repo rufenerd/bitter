@@ -1,26 +1,26 @@
 import Action from "./Action"
 
-const ActionMenu = ({ setActive }) => {
+const ActionMenu = ({ setActive, unlockTier }) => {
     return <div style={{ height: '100%' }}>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Action text={"Water"} onClick={() => setActive("water")} />
-            <Action text={"Template DNA"} onClick={() => setActive("template")} />
-            <Action text={"Chelex"} onClick={() => setActive("chelex")} />
-            <Action text={"Buffer"} onClick={() => setActive("buffer")} />
+            <Action locked={unlockTier < 1} text={"Template DNA"} onClick={() => setActive("template")} />
+            <Action locked={unlockTier < 1} text={"Chelex"} onClick={() => setActive("chelex")} />
+            <Action locked={unlockTier < 1} text={"Buffer"} onClick={() => setActive("buffer")} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Action text={"Polymerase"} onClick={() => setActive("polymerase")} />
-            <Action text={"dNTP"} onClick={() => setActive("dntp")} />
-            <Action text={"Primer"} onClick={() => setActive("primer")} />
+            <Action locked={unlockTier < 1} text={"Polymerase"} onClick={() => setActive("polymerase")} />
+            <Action locked={unlockTier < 1} text={"dNTP"} onClick={() => setActive("dntp")} />
+            <Action locked={unlockTier < 1} text={"Primer"} onClick={() => setActive("primer")} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Action text={"HaeIII"} onClick={() => setActive("haeiii")} />
-            <Action text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
+            <Action locked={unlockTier < 3} text={"HaeIII"} onClick={() => setActive("haeiii")} />
+            <Action locked={unlockTier < 4} text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Action text={"64ºC"} onClick={() => setActive("64")} />
-            <Action text={"72ºC"} onClick={() => setActive("72")} />
-            <Action text={"94ºC"} onClick={() => setActive("94")} />
+            <Action locked={unlockTier < 2} text={"64ºC"} onClick={() => setActive("64")} />
+            <Action locked={unlockTier < 2} text={"72ºC"} onClick={() => setActive("72")} />
+            <Action locked={unlockTier < 2} text={"94ºC"} onClick={() => setActive("94")} />
         </div>
     </div>
 }
