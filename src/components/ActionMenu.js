@@ -14,13 +14,14 @@ const ActionMenu = ({ setActive, unlockTier }) => {
             <Action locked={unlockTier < 1} text={"Primer"} onClick={() => setActive("primer")} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <Action locked={unlockTier < 3} text={"HaeIII"} onClick={() => setActive("haeiii")} />
-            <Action locked={unlockTier < 4} text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Action locked={unlockTier < 2} text={"64ºC"} onClick={() => setActive("64")} />
             <Action locked={unlockTier < 2} text={"72ºC"} onClick={() => setActive("72")} />
             <Action locked={unlockTier < 2} text={"94ºC"} onClick={() => setActive("94")} />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Action locked={unlockTier < 3} text={"PCR auto-cycler"} onClick={() => setActive("cycler")} />
+            <Action locked={unlockTier < 4} text={"HaeIII"} onClick={() => setActive("haeiii")} />
+            <Action locked={unlockTier < 5} text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
         </div>
     </div>
 }
