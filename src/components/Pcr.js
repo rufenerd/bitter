@@ -198,6 +198,9 @@ const Pcr = () => {
         <ActionMenu
             setActive={handleNewActive}
             unlockTier={unlockTier}
+            included={
+                Object.fromEntries(items.map(item => [item, true]))
+            }
         />
         <div style={{ width: "100%" }}>
             <Stats temp={temp} factor={factor} />

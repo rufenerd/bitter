@@ -1,10 +1,10 @@
-import { LockFill } from 'react-bootstrap-icons';
+import { LockFill, Check } from 'react-bootstrap-icons';
 import { Button } from 'react-bootstrap';
 
-const Action = ({ locked, text, onClick }) => {
-    const lockMargin = locked ? '30px' : '0px';
+const Action = ({ locked, text, onClick, included }) => {
+    const lockMargin = locked || included ? '30px' : '0px';
     return <div>
-        < Button style={{
+        < Button variant="outline-secondary" style={{
             cursor: 'pointer',
             minWidth: '250px',
             padding: '10px',
@@ -19,7 +19,10 @@ const Action = ({ locked, text, onClick }) => {
             <span style={{ marginLeft: lockMargin }}>{text}</span>
             {locked && <LockFill style={{
                 margin: '5px'
-            }} color="dark-grey" />}
+            }} color="grey" />}
+            {included && <Check style={{
+                margin: '5px',
+            }} color="grey" />}
         </Button>
 
     </div >
