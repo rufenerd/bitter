@@ -8,7 +8,8 @@ const Intro = ({ onEnterClick }) => {
             className='text'
             style={{
                 cursor: 'pointer',
-                textDecoration: 'underline'
+                textDecoration: 'underline',
+                color: '#505050',
             }}
             href="#"
             onClick={onEnterClick}>

@@ -7,7 +7,11 @@ import Stats from './Stats'
 
 const Pcr = () => {
     const [active, setActive] = useState();
-    const [slideConfig, setSlideConfig] = useState(false);
+    const [slideConfig, setSlideConfig] = useState({
+        "headerText": "The Bitter Truth by Dan Rufener",
+        "bodyText": "Something here the explains the project",
+        "resultText": "Game instructions here"
+    });
     const [items, setItems] = useState([]);
     const [unlockTier, setUnlockTier] = useState(-1);
     const [factor, setFactor] = useState(1)
