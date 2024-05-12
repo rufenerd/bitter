@@ -9,7 +9,7 @@ const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState(false);
     const [items, setItems] = useState([]);
-    const [unlockTier, setUnlockTier] = useState(0);
+    const [unlockTier, setUnlockTier] = useState(-1);
     const [factor, setFactor] = useState(1)
     const [temp, setTemp] = useState(20)
     const [denatured, setDenatured] = useState(false);
@@ -198,12 +198,13 @@ const Pcr = () => {
         <ActionMenu
             setActive={handleNewActive}
             unlockTier={unlockTier}
+            temp={temp}
             included={
                 Object.fromEntries(items.map(item => [item, true]))
             }
         />
         <div style={{ width: "100%" }}>
-            <Stats temp={temp} factor={factor} />
+            <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
             {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
             {active && <Slide active={active} config={slideConfig} />}
         </div>

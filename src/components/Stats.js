@@ -1,4 +1,4 @@
-const Stats = ({ temp, factor }) => {
+const Stats = ({ temp, factor, unlockTier }) => {
 
     return <div style={{
         width: '80%',
@@ -7,12 +7,15 @@ const Stats = ({ temp, factor }) => {
         border: '2px solid black',
         marginLeft: '100px'
     }}>
-        <div style={{
+        {unlockTier == -1 && <div style={{
             padding: '10px'
-        }}>{`Temperature: ${temp}ºC`}</div>
-        <div style={{
+        }}>{`Are you Heterozygous or Homozygous for the PTC bitter tasting gene TAS2R38?`}</div>}
+        {unlockTier >= 0 && <div style={{
             padding: '10px'
-        }}>{`Replication Factor: ${factor}x`}</div>
+        }}>{`Solution Temperature: ${temp}ºC`}</div>}
+        {unlockTier > 1 && unlockTier < 7 && <div style={{
+            padding: '10px'
+        }}>{`Replication Factor: ${factor}x`}</div>}
     </div>
 }
 
