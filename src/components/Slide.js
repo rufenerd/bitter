@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Slide = ({ config }) => {
     return <div >
         <div style={{
-
-            color: 'black',
+            color: '#505050',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
