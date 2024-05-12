@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import ActionMenu from './ActionMenu';
 import Slide from './Slide'
+import VideoPlayer from './VideoPlayer';
 
 const Pcr = () => {
     const [active, setActive] = useState();
@@ -82,7 +83,7 @@ const Pcr = () => {
                 "headerText": "Auto-cylce PCR",
                 "onClose": () => {
                     setTemp(20)
-                    setFactor(1000000000)
+                    setFactor(2 ** 30)
                     setUnlockTier(4)
                 }
             }
@@ -220,6 +221,7 @@ const Pcr = () => {
             setActive={handleNewActive}
             unlockTier={unlockTier}
         />
+        {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
         {active && <Slide active={active} config={slideConfig} onClose={() => setActive("")} />}
     </div >
 }
