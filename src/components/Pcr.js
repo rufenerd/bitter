@@ -3,6 +3,7 @@ import { useState } from "react";
 import ActionMenu from './ActionMenu';
 import Slide from './Slide'
 import VideoPlayer from './VideoPlayer';
+import Stats from './Stats'
 
 const Pcr = () => {
     const [active, setActive] = useState();
@@ -215,8 +216,7 @@ const Pcr = () => {
     };
 
     return <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
-        <div>{`Temperature: ${temp}ºC`}</div>
-        <div>{`Replication Factor: ${factor}x`}</div>
+        <Stats temp={temp} factor={factor} />
         <ActionMenu
             setActive={handleNewActive}
             unlockTier={unlockTier}
