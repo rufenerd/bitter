@@ -65,7 +65,7 @@ const Pcr = () => {
                     setSlideConfig({
                         "headerText": "Runied!",
                         bodyText,
-                        "bodyTresultTextext": "But because the DNA was not protected, heavy metals like Mg2+ destroyed your DNA before you could use it. No problem, we'll just need to start over!",
+                        "resultText": "But because the DNA was not protected, heavy metals like Mg2+ destroyed your DNA before you could use it. No problem, we'll just need to start over!",
                     })
                 }
                 break;
