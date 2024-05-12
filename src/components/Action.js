@@ -3,19 +3,17 @@ const Action = ({ locked, text, onClick }) => {
         onClick={locked ? () => { } : onClick}
         style={{
             cursor: 'pointer',
-            width: '150px',
-            height: '150px',
-            marginLeft: '10px',
-            marginRight: '10px',
-            borderRadius: '50%',
+            minWidth: '200px',
+            padding: '10px',
             backgroundColor: 'grey',
+            border: "2px black solid",
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             fontSize: '20px'
-        }}><span style={{
+        }}> <span style={{
             color: locked ? '#999' : '#000'
-        }}>{text + (locked ? " LOCKED!" : "")}</span></div>
+        }}>{text + (locked ? " LOCKED!" : "")}</span></div >
 }
 
 export default Action
