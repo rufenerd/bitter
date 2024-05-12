@@ -203,10 +203,10 @@ const Pcr = () => {
                 Object.fromEntries(items.map(item => [item, true]))
             }
         />
-        <div style={{ width: "100%" }}>
-            <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
+        <div style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
-            {active && <Slide active={active} config={slideConfig} />}
+            <Slide active={active} config={slideConfig} />
+            <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
         </div>
     </div >
 }

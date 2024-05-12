@@ -4,7 +4,8 @@ const Stats = ({ temp, factor, unlockTier }) => {
         width: '80%',
         display: 'flex',
         justifyContent: 'center',
-        border: '2px solid black',
+        border: '2px solid grey',
+        color: 'grey',
         marginLeft: '100px'
     }}>
         {unlockTier == -1 && <div style={{
