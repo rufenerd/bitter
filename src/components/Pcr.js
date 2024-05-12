@@ -199,9 +199,11 @@ const Pcr = () => {
             setActive={handleNewActive}
             unlockTier={unlockTier}
         />
-        <Stats temp={temp} factor={factor} />
-        {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
-        {active && <Slide active={active} config={slideConfig} />}
+        <div style={{ width: "100%" }}>
+            <Stats temp={temp} factor={factor} />
+            {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
+            {active && <Slide active={active} config={slideConfig} />}
+        </div>
     </div >
 }
 
