@@ -8,7 +8,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" style={{
+        backgroundColor: '#DEDEE0'
+      }}>
         {!entered && <Intro onEnterClick={() => setEntered(true)} />}
         {entered && <Pcr />}
       </header>

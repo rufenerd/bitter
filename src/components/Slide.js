@@ -10,11 +10,13 @@ const Slide = ({ config }) => {
         width: '80%',
         padding: '10px 50px 50px 50px'
     }}>
+        <h1 style={{
+            fontWeight: 'bold'
+        }}>{config.headerText}</h1>
+        <div>{config.bodyText}</div>
         <div style={{
             fontWeight: 'bold'
-        }}>{config.headerText}</div>
-        <div>{config.bodyText}</div>
-        <div>{config.resultText}</div>
+        }}>{config.resultText}</div>
     </div>
 }
 export default Slide

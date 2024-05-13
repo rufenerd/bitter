@@ -5,8 +5,8 @@ const ActionMenu = ({ setActive, unlockTier, included, temp }) => {
         <div style={{}}>
             <Action included={included["water"]} text={"Water"} onClick={() => setActive("water")} />
             <Action included={included["template"]} locked={unlockTier < 1} text={"Template DNA"} onClick={() => setActive("template")} />
-            <Action included={included["chelex"]} locked={unlockTier < 1} text={"Chelex"} onClick={() => setActive("chelex")} />
             <Action included={included["buffer"]} locked={unlockTier < 1} text={"Buffer"} onClick={() => setActive("buffer")} />
+            <Action included={included["chelex"]} locked={unlockTier < 1} text={"Chelex"} onClick={() => setActive("chelex")} />
             <Action included={included["polymerase"]} locked={unlockTier < 1} text={"Polymerase"} onClick={() => setActive("polymerase")} />
             <Action included={included["dntp"]} locked={unlockTier < 1} text={"dNTP"} onClick={() => setActive("dntp")} />
             <Action included={included["primer"]} locked={unlockTier < 1} text={"Primer"} onClick={() => setActive("primer")} />
