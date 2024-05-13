@@ -8,7 +8,7 @@ const Slide = ({ config }) => {
         justifyContent: 'space-between',
         height: '100%',
         width: '80%',
-        padding: '50px'
+        padding: '10px 50px 50px 50px'
     }}>
         <div style={{
             fontWeight: 'bold'
