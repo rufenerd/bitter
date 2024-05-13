@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 const Action = ({ locked, text, onClick, included }) => {
     const lockMargin = locked || included ? '30px' : '0px';
     return <div>
-        < Button variant="outline-secondary" style={{
+        < Button variant="info" style={{
             cursor: 'pointer',
             minWidth: '250px',
             padding: '10px',
