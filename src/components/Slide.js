@@ -7,16 +7,23 @@ const Slide = ({ config }) => {
         flexDirection: 'column',
         justifyContent: 'space-between',
         height: '100%',
-        width: '80%',
-        padding: '10px 50px 50px 50px'
+        width: '100%',
+        padding: '10px 20px 30px 30px',
+        fontSize: '22px'
     }}>
         <h1 style={{
-            fontWeight: 'bold'
+            fontWeight: 'bold',
         }}>{config.headerText}</h1>
         <div>{config.bodyText}</div>
         <div style={{
+            display: 'flex',
+            justifyContent: 'center'
+        }}>
+            <img src={config.image} height={config.imageHeight || "400px"} width="auto" />
+        </div>
+        <div style={{
             fontWeight: 'bold'
         }}>{config.resultText}</div>
-    </div>
+    </div >
 }
 export default Slide

@@ -9,8 +9,8 @@ const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState({
         "headerText": "The Bitter Truth by Dan Rufener",
-        "bodyText": "Something here the explains the project",
-        "resultText": "Game instructions here"
+        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgusting or just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make a billion copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
+        "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!"
     });
     const [items, setItems] = useState([]);
     const [unlockTier, setUnlockTier] = useState(-1);
@@ -53,7 +53,7 @@ const Pcr = () => {
             case 'water':
                 setSlideConfig({
                     "headerText": "DNase/RNase/Protease-free water",
-                    "bodyText": "Ultra-pure H₂0 is the solvent that forms the medium where the PCR reaction will occur. It is certified free of DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment."
+                    "bodyText": "Ultra-pure H₂0 is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water."
                 })
                 break;
             case 'template':
@@ -62,50 +62,76 @@ const Pcr = () => {
                     setSlideConfig({
                         "headerText": "DNA to Copy and Analyze",
                         bodyText,
-                        "resultText": "After spinning in the centrifuge, it can be separated from the other cell matter and added."
+                        "image": "dnaExtract.jpeg",
+                        "resultText": "After spinning in the centrifuge, it can be separated from the other cell matter and added. Because you've added Chelex, the DNA is protected from heavy metals and enzymes that would otherwise break it down."
                     })
                 } else {
                     reset()
                     setSlideConfig({
                         "headerText": "Runied!",
                         bodyText,
-                        "resultText": "But because the DNA was not protected, heavy metals like Mg2+ destroyed your DNA before you could use it. No problem, we'll just need to start over!",
+                        image: 'trash.jpg',
+                        "resultText": <div>But because the DNA was not protected, heavy metals like Mg2+ destroyed your DNA before you could use it. No problem, we'll just need to start over!
+                            <br /><a href="https://www.vecteezy.com/free-vector/garbage-icon">Garbage Icon Vectors by Vecteezy</a>
+                        </div>,
                     })
                 }
                 break;
             case 'chelex':
                 setSlideConfig({
                     "headerText": "Chelex to Protect DNA",
+                    "image": "chelex.jpg",
+                    "bodyText": "The -OH ends are very electronegative so Chelex binds positive molecules, especially 2+ heavy metals that interfere with PCR.",
+                    "resultText": "Now you can add your template DNA!"
                 })
                 break;
             case 'buffer':
                 setSlideConfig({
-                    "headerText": "Maintain pH, Promote Enzyme Activity"
+                    "headerText": "Maintain pH, Promote Enzyme Activity",
+                    "bodyText": "A mixture of Tris-KCl-MgCl2 acts as a buffer that regulates pH, stabalizing and promoting the polymerase activity in PCR.",
+                    "image": "buffer.gif",
+                    "resultText": "One step closer to running PCR!"
                 })
                 break;
             case 'polymerase':
                 setSlideConfig({
-                    "headerText": "Taq Polymerase Makes the Copies"
+                    "headerText": "Taq Polymerase",
+                    "bodyText": "DNA polymerase is the enzyme that actually replicates DNA. In PCR, the temperature needs to be raised high enough that DNA would spontaneously break apart. Thermus aquaticus (Taq) is a heat-resistant bacteria discovered in Yellowstone's hot springs. We use Taq's polymerase in PCR due to it's heat-resistant molecular structure, streamlining the amplification process.",
+                    "image": "hotsprings.jpg",
+                    "resultText": "Once the temperature is right, Taq polymerase will make the DNA copies!"
                 })
                 break;
             case 'dntp':
                 setSlideConfig({
-                    "headerText": "Building Blocks for Copies"
+                    "headerText": "Building Blocks for Copies",
+                    "image": "dntp.png",
+                    "bodyText": "Information in DNA is coded in nucleotides (A, T, C, or G). The consist of a sugar an amino acid a phosphate group. You'll add the read-to-use, activated form, with a tri-phosphate group.",
+                    "resultText": "Now there's the 'ingredients' that polymerase can use to make more DNA."
                 })
                 break;
             case 'primer':
                 setSlideConfig({
-                    "headerText": "Target the Bitter Tasting Gene"
+                    "headerText": "Target the Bitter Tasting Gene",
+                    "image": "primer.png",
+                    "imageHeight": "300px",
+                    "bodyText": "A short strand of DNA, about 25 base pairs long, specifically coded to bind to, or \"anneal\", to the gene that codes for whether or not you can taste PTC (TAS2R38). This ensures the right DNA is copied because it provides the starting point for replication to occur. Because DNA strands are held together via hydrogen bonds, not the strongest bonds, the temperature needs to be low for annealing to occur.",
+                    "resultText": "You're ready to target TAS2R38!"
                 })
                 break;
             case 'haeiii':
                 setSlideConfig({
-                    "headerText": "HaeIII cuts Taster Gene"
+                    "headerText": "HaeIII cuts Taster Gene",
+                    "image": "cut.png",
+                    "bodyText": "Bacteria and viruses don't get along. As such, both sides work hard to stop the other. One technique used by bacteria to stop viruses is to recognize foreign DNA and chop it up. HaeIII is an enzyme that finds GGCC segments and cuts them. Since \"tasters\" have GGCC in their TAS2R38 gene and \"non-tasters\" do not, we can use whether or not HaeIII cuts the segments to analyze the DNA.",
+                    "resultText": "You're ready to analyze the DNA with gel electrophoresis!"
                 })
                 break;
             case 'electrophoresis':
                 setSlideConfig({
-                    "headerText": "Analyze with gel electrophoresis!"
+                    "headerText": "Analyzed with gel electrophoresis!",
+                    "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster, so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the bottom). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
+                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in rows 2 and 3 (both mine). If not, you'd have a single band like in most of the other rows, even with my left bar if you're a non-taster or with my right bar if you're a homozygous taster.",
+                    "image": "electro.jpeg"
                 })
                 break;
             case 'cycler':
@@ -208,7 +234,7 @@ const Pcr = () => {
             }
         />
         <div style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
+            {/* {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />} */}
             <Slide active={active} config={slideConfig} />
             <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
         </div>

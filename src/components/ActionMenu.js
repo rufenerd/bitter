@@ -1,7 +1,7 @@
 import Action from "./Action"
 
 const ActionMenu = ({ setActive, unlockTier, included, temp }) => {
-    return <div className="actionMenu" style={{ width: '400px', midWidth: "400px", height: '100%' }}>
+    return <div className="actionMenu" style={{ midWidth: "400px", height: '100%' }}>
         <div style={{}}>
             <Action included={included["water"]} text={"Water"} onClick={() => setActive("water")} />
             <Action included={included["template"]} locked={unlockTier < 1} text={"Template DNA"} onClick={() => setActive("template")} />
