@@ -15,7 +15,7 @@ const ActionMenu = ({ setActive, unlockTier, included, temp }) => {
             <Action included={temp == '94'} locked={unlockTier < 2} text={"94ºC"} onClick={() => setActive("94")} />
             <Action included={included["cycler"]} locked={unlockTier < 3} text={"PCR auto-cycler"} onClick={() => setActive("cycler")} />
             <Action included={included["haeiii"]} locked={unlockTier < 4} text={"HaeIII"} onClick={() => setActive("haeiii")} />
-            <Action locked={unlockTier < 5} text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
+            <Action included={included["electrophoresis"]} locked={unlockTier < 5} text={"Electrophoresis"} onClick={() => setActive("electrophoresis")} />
         </div>
     </div>
 }
