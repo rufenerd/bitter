@@ -132,7 +132,7 @@ const Pcr = () => {
                     "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster, so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the bottom). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
                     "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in rows 2 and 3 (both mine). If not, you'd have a single band like in most of the other rows, even with my left bar if you're a non-taster or with my right bar if you're a homozygous taster.",
                     "image": "electro.jpeg",
-                    "imageHeight": "350px"
+                    "imageHeight": "300px"
                 })
                 break;
             case 'cycler':
