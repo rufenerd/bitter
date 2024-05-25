@@ -50,7 +50,7 @@ const Pcr = () => {
                 }
             }
         }
-        setUnlockTier(newUnlockTier);
+        setUnlockTier(Math.max(unlockTier, newUnlockTier));
 
 
         switch (newActive) {
@@ -121,6 +121,15 @@ const Pcr = () => {
                     "imageHeight": "300px",
                     "bodyText": "A short strand of DNA, about 25 base pairs long, specifically coded to bind to, or \"anneal\", to the gene that codes for whether or not you can taste PTC (TAS2R38). This ensures the right DNA is copied because it provides the starting point for replication to occur. Because DNA strands are held together via hydrogen bonds, not the strongest bonds, the temperature needs to be low for annealing to occur.",
                     "resultText": "You're ready to target TAS2R38!"
+                })
+                break;
+            case 'spin':
+                setUnlockTier(2.5)
+                setSlideConfig({
+                    "headerText": "Ready to perform PCR!",
+                    "image": "ready.jpg",
+                    "bodyText": "With everything mixed together properly by the centrifuge, you're ready to proceed with PCR.",
+                    "resultText": "Get it hot to split the DNA. Chill to anneal the primer to both halves. Heat to make copies. Repeat!"
                 })
                 break;
             case 'haeiii':
@@ -244,7 +253,7 @@ const Pcr = () => {
             }
         />
         <div style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            {unlockTier == 2 && !shownSpinVideo && < VideoPlayer handleVideoEnded={() => {
+            {unlockTier == 2.5 && !shownSpinVideo && < VideoPlayer handleVideoEnded={() => {
                 setShownSpinVideo(true)
             }
             } videoPath={"spin.mp4"} />}

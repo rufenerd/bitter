@@ -7,7 +7,7 @@ const Action = ({ locked, text, onClick, included }) => {
         < Button variant="info" style={{
             cursor: 'pointer',
             minWidth: '250px',
-            padding: '10px',
+            padding: '8px',
             margin: "5px",
             display: 'flex',
             justifyContent: 'center',
