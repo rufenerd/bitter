@@ -53,6 +53,9 @@ const Pcr = () => {
         setUnlockTier(Math.max(unlockTier, newUnlockTier));
 
 
+        var bodyText;
+        var image;
+        var imageHeight;
         switch (newActive) {
             case 'water':
                 setSlideConfig({
@@ -62,7 +65,7 @@ const Pcr = () => {
                 })
                 break;
             case 'template':
-                const bodyText = "After swishing 5 mL of 0.9% saline in your mouth for 30 seconds, it contains several copies of your DNA to copy."
+                bodyText = "After swishing 5 mL of 0.9% saline in your mouth for 30 seconds, it contains several copies of your DNA to copy."
                 if (items.includes("chelex")) {
                     setSlideConfig({
                         "headerText": "DNA to Copy and Analyze",
@@ -124,10 +127,10 @@ const Pcr = () => {
                 })
                 break;
             case 'spin':
-                setUnlockTier(2.5)
+                setUnlockTier(Math.max(unlockTier, 2.5))
                 setSlideConfig({
                     "headerText": "Ready to perform PCR!",
-                    "image": "ready.jpg",
+                    "image": "pcrCycle.jpg",
                     "bodyText": "With everything mixed together properly by the centrifuge, you're ready to proceed with PCR.",
                     "resultText": "Get it hot to split the DNA. Chill to anneal the primer to both halves. Heat to make copies. Repeat!"
                 })
@@ -153,7 +156,7 @@ const Pcr = () => {
             case 'cycler':
                 setTemp(20)
                 setFactor(2 ** 35)
-                setUnlockTier(4)
+                setUnlockTier(Math.max(unlockTier, 4))
                 setSlideConfig({
                     "headerText": "Thermal Cycler",
                     "image": "cycler.jpeg",
@@ -163,60 +166,72 @@ const Pcr = () => {
                 break;
 
             case '64':
+                bodyText = "The lower temperature allows the primer to locate TAS2R38 and bind with hydrogen bonds, providing a starting point for replication."
+                image = "anneal.jpg"
                 if (denatured && !annealed) {
                     setTemp(64)
                     setAnnealed(true)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Cool to 64ºC and Anneal",
                         "resultText": "Annealing takes place. Ready to make some copies!",
-                    })
-                } else if (denatured && annealed) {
-                    setTemp(64)
-                    setSlideConfig({
-                        "headerText": "Cool to 64ºC",
-                        "resultText": "Already annealed. Raise the heat to make some copies!",
                     })
                 } else {
                     setTemp(64)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Set temperature to 64ºC",
-                        "resultText": "The DNA is not denatured and is still double stranded, so no annealing of the primer takes place.",
+                        "resultText": "But the DNA is not denatured and is still double stranded, so no annealing of the primer takes place.",
                     })
                 }
                 break;
             case '72':
-                const newFactor = factor * 2
+                bodyText = "Around the temperature of a Yellowstone hot spring where Taq comes from, our polymerase operates optimally. The high temperature also reduces other biproducts like primer attaching to itself."
+                image = "extension.jpg"
                 setTemp(72)
-                setFactor(newFactor)
-                setDenatured(false)
-                setAnnealed(false)
-                if (newFactor >= 8) {
-                    setUnlockTier(3)
-                }
                 if (annealed) {
+                    const newFactor = factor * 2
+                    setFactor(newFactor)
+                    if (newFactor >= 8) {
+                        setUnlockTier(Math.max(unlockTier, 3))
+                    }
+                    setDenatured(false)
+                    setAnnealed(false)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Set temp to 72ºC and Extend",
                         "resultText": "Doubled the amount of TAS2R38 DNA!"
                     })
                 } else if (denatured) {
                     setTemp(72)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Set temp to 72ºC",
-                        "resultText": "The already separated DNA strands heat up, but with no primer attached no copies can be made."
+                        "resultText": "The already separated DNA strands heat up, but with no primer attached, no copies can be made."
                     })
                 } else {
                     setTemp(72)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Set temp to 72ºC",
                         "resultText": "The DNA is not denatured and is still double stranded. More heat is needed to split the DNA."
                     })
                 }
                 break;
             case '94':
+                bodyText = "At this high heat, breaking the hydrogen bonds that attach the DNA strands becomes sponataneous and they break apart. The stronger covalent bonds within the strands remain firmly together, protecting the genetic information."
+                image = "denature.jpg"
                 if (!denatured) {
                     setTemp(94)
                     setDenatured(true)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Heat to 94ºC and Denature",
                         "resultText": "Each strand of DNA separates into two single-strands!",
                     })
@@ -224,6 +239,8 @@ const Pcr = () => {
                     setTemp(94)
                     setAnnealed(false)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Heat to 94ºC and Denature",
                         "resultText": "The primers detach from the single-stranded DNA...",
                     })
@@ -231,6 +248,8 @@ const Pcr = () => {
                     setTemp(94)
                     setDenatured(true)
                     setSlideConfig({
+                        bodyText,
+                        image,
                         "headerText": "Heat to 94ºC and Denature",
                         "resultText": "The already separated DNA strands heat up...",
                     })
