@@ -1,8 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const VideoPlayer = ({ videoPath, handleVideoEnded }) => {
     const videoRef = useRef(null);
 
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.playbackRate = 2.0;
+        }
+    }, []);
 
     return (
         <div className="video-container">

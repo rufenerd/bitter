@@ -9,8 +9,10 @@ const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState({
         "headerText": "The Bitter Truth by Dan Rufener",
-        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgusting or just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make a billion copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
-        "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!"
+        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgusting or just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
+        "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!",
+        "image": "adding.jpeg",
+        "imageHeight": "180px",
     });
     const [items, setItems] = useState([]);
     const [unlockTier, setUnlockTier] = useState(-1);
@@ -18,6 +20,7 @@ const Pcr = () => {
     const [temp, setTemp] = useState(20)
     const [denatured, setDenatured] = useState(false);
     const [annealed, setAnnealed] = useState(false);
+    const [shownVideo, setShownVideo] = useState(false);
 
     const reset = () => {
         setItems([])
@@ -53,7 +56,8 @@ const Pcr = () => {
             case 'water':
                 setSlideConfig({
                     "headerText": "DNase/RNase/Protease-free water",
-                    "bodyText": "Ultra-pure H₂0 is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water."
+                    "bodyText": "Ultra-pure H₂0 is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water.",
+                    "image": "water.jpg"
                 })
                 break;
             case 'template':
@@ -88,7 +92,7 @@ const Pcr = () => {
             case 'buffer':
                 setSlideConfig({
                     "headerText": "Maintain pH, Promote Enzyme Activity",
-                    "bodyText": "A mixture of Tris-KCl-MgCl2 acts as a buffer that regulates pH, stabalizing and promoting the polymerase activity in PCR.",
+                    "bodyText": "A mixture of Tris-KCl-MgCl2 acts as a buffer that regulates pH, stabilizing and promoting the polymerase activity in PCR.",
                     "image": "buffer.gif",
                     "resultText": "One step closer to running PCR!"
                 })
@@ -122,6 +126,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "HaeIII cuts Taster Gene",
                     "image": "cut.png",
+                    "imageHeight": "300px",
                     "bodyText": "Bacteria and viruses don't get along. As such, both sides work hard to stop the other. One technique used by bacteria to stop viruses is to recognize foreign DNA and chop it up. HaeIII is an enzyme that finds GGCC segments and cuts them. Since \"tasters\" have GGCC in their TAS2R38 gene and \"non-tasters\" do not, we can use whether or not HaeIII cuts the segments to analyze the DNA.",
                     "resultText": "You're ready to analyze the DNA with gel electrophoresis!"
                 })
@@ -137,10 +142,13 @@ const Pcr = () => {
                 break;
             case 'cycler':
                 setTemp(20)
-                setFactor(2 ** 30)
+                setFactor(2 ** 35)
                 setUnlockTier(4)
                 setSlideConfig({
-                    "headerText": "Auto-cylce PCR",
+                    "headerText": "Thermal Cycler",
+                    "image": "cycler.jpeg",
+                    "bodyText": "Decades ago, chemists had to do PCR by moving the solution between water baths at different temperature. Now there's a machine that can be programmed to quickly change and hold temperatures for various amounts of time.",
+                    "resultText": "PCR Complete! Using the thermal cycler PCR program, in a couple hours, a total of 35 cycles creates tens of billions times the original amount of TAS2R38!"
                 })
                 break;
 
@@ -235,7 +243,11 @@ const Pcr = () => {
             }
         />
         <div style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            {unlockTier == 6 && < VideoPlayer handleVideoEnded={() => setUnlockTier(7)} videoPath={"electrophoresis.mp4"} />}
+            {unlockTier == 6 && !shownVideo && < VideoPlayer handleVideoEnded={() => {
+                setShownVideo(true)
+                setUnlockTier(7)
+            }
+            } videoPath={"electrophoresis.mp4"} />}
             <Slide active={active} config={slideConfig} />
             <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
         </div>
