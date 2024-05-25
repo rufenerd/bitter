@@ -9,7 +9,7 @@ const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState({
         "headerText": "The Bitter Truth by Dan Rufener",
-        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgusting or just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
+        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgustingly bitter or taste just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
         "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!",
         "image": "adding.jpeg",
         "imageHeight": "180px",
@@ -60,7 +60,7 @@ const Pcr = () => {
             case 'water':
                 setSlideConfig({
                     "headerText": "DNase/RNase/Protease-free water",
-                    "bodyText": "Ultra-pure H₂0 is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water.",
+                    "bodyText": "Ultra-pure H₂O is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water.",
                     "image": "water.jpg"
                 })
                 break;
@@ -147,8 +147,8 @@ const Pcr = () => {
             case 'electrophoresis':
                 setSlideConfig({
                     "headerText": "Analyzed with gel electrophoresis!",
-                    "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster, so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the bottom). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
-                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in rows 2 and 3 (both mine). If not, you'd have a single band like in most of the other rows, even with my left bar if you're a non-taster or with my right bar if you're a homozygous taster.",
+                    "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster based on Graham's law, R₁/R₂ = √(M₂/M₁), so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the left). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
+                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in columns 4 and 5 (both mine). If not, you'd have a single band like in most of the other rows, even with my top bar if you're a non-taster or with my bottom bar if you're a homozygous taster.",
                     "image": "electro.jpeg",
                     "imageHeight": "300px"
                 })
