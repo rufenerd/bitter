@@ -62,7 +62,7 @@ const Pcr = () => {
                     "headerText": "DNase/RNase/Protease-free water",
                     "bodyText": "Ultra-pure H₂O is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but pure water gets you a better start than if you used tap water.",
                     "image": "water.jpg",
-                    "resultText": "Add to the water to prepare for PCR."
+                    "resultText": "Continue adding items from the left to prepare for PCR."
                 })
                 break;
             case 'template':
@@ -148,7 +148,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Analyzed with gel electrophoresis!",
                     "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster based on Graham's law, R₁/R₂ = √(M₂/M₁), so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the left). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
-                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in columns 4 and 5 (both mine). If not, you'd have a single band like in most of the other rows, level with my top bar if you're a non-taster or with my bottom bar if you're a homozygous taster.",
+                    "resultText": "You did it! If you are a heterozygous taster like me, your DNA would result in the two-band pattern in columns 4 and 5 (both mine). If not, you'd have a single band like in most of the other rows, level with my top bar if you're a non-taster or with my bottom bar if you're a homozygous taster.",
                     "image": "electro.jpeg",
                     "imageHeight": "300px"
                 })
