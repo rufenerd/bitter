@@ -60,8 +60,9 @@ const Pcr = () => {
             case 'water':
                 setSlideConfig({
                     "headerText": "DNase/RNase/Protease-free water",
-                    "bodyText": "Ultra-pure H₂O is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but this gets you off on a much better foot than if you used tap water.",
-                    "image": "water.jpg"
+                    "bodyText": "Ultra-pure H₂O is the solvent that forms the medium where the PCR reaction will occur. This water has no DNase/RNase/Protease, enzymes in the air and normal water that would break down DNA and ruin the experiment. You'll still need Chelex and a buffer to protect the DNA and keep reactions working well, but pure water gets you a better start than if you used tap water.",
+                    "image": "water.jpg",
+                    "resultText": "Add to the water to prepare for PCR."
                 })
                 break;
             case 'template':
@@ -80,7 +81,6 @@ const Pcr = () => {
                         bodyText,
                         image: 'trash.jpg',
                         "resultText": <div>But because the DNA was not protected, heavy metals like Mg2+ destroyed your DNA before you could use it. No problem, we'll just need to start over!
-                            <br /><a href="https://www.vecteezy.com/free-vector/garbage-icon">Garbage Icon Vectors by Vecteezy</a>
                         </div>,
                     })
                 }
@@ -89,7 +89,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Chelex to Protect DNA",
                     "image": "chelex.jpg",
-                    "bodyText": "The -OH ends are very electronegative so Chelex binds positive molecules, especially 2+ heavy metals that interfere with PCR.",
+                    "bodyText": "Chelex's functional groups line up, bind, and deactivate positively charged metals, especially 2+ heavy metal ions that interfere with PCR.",
                     "resultText": "Now you can add your template DNA!"
                 })
                 break;
@@ -113,7 +113,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Building Blocks for Copies",
                     "image": "dntp.png",
-                    "bodyText": "Information in DNA is coded in nucleotides (A, T, C, or G). The consist of a sugar an amino acid a phosphate group. You'll add the read-to-use, activated form, with a tri-phosphate group.",
+                    "bodyText": "Information in DNA is coded in nucleotides (A, T, C, or G). They consist of a phosphate group, a sugar, and an amino acid. You'll add the read-to-use activated forms, with a triphosphate group (not shown).",
                     "resultText": "Now there's the 'ingredients' that polymerase can use to make more DNA."
                 })
                 break;
@@ -122,17 +122,17 @@ const Pcr = () => {
                     "headerText": "Target the Bitter Tasting Gene",
                     "image": "primer.png",
                     "imageHeight": "300px",
-                    "bodyText": "A short strand of DNA, about 25 base pairs long, specifically coded to bind to, or \"anneal\", to the gene that codes for whether or not you can taste PTC (TAS2R38). This ensures the right DNA is copied because it provides the starting point for replication to occur. Because DNA strands are held together via hydrogen bonds, not the strongest bonds, the temperature needs to be low for annealing to occur.",
+                    "bodyText": "A short strand of DNA, about 25 base pairs long, specifically coded to bind to, or \"anneal\", to part of TAS2R38, the gene that codes for whether or not you can taste phenylthiocarbamide (PTC). This ensures the right DNA is copied because it provides the starting point for replication to occur. Because DNA strands are held together via hydrogen bonds, not the strongest bonds, the temperature needs to be low for annealing to occur.",
                     "resultText": "You're ready to target TAS2R38!"
                 })
                 break;
             case 'spin':
                 setUnlockTier(Math.max(unlockTier, 2.5))
                 setSlideConfig({
-                    "headerText": "Ready to perform PCR!",
+                    "headerText": "Mixed and ready!",
                     "image": "pcrCycle.jpg",
-                    "bodyText": "With everything mixed together properly by the centrifuge, you're ready to proceed with PCR.",
-                    "resultText": "Get it hot to split the DNA. Chill to anneal the primer to both halves. Heat to make copies. Repeat!"
+                    "bodyText": "With everything mixed together properly by the centrifuge, you can now proceed with PCR.",
+                    "resultText": "Get it hot to split DNA. Chill to bind primer. Heat to make copies. Repeat!"
                 })
                 break;
             case 'haeiii':
@@ -148,7 +148,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Analyzed with gel electrophoresis!",
                     "bodyText": "An electric charge draws DNA across the gel. Shorter molecules effuse faster based on Graham's law, R₁/R₂ = √(M₂/M₁), so how far the strands travel tells you relative length. You can estimate the length against a mixture of known-length DNA segments called a \"DNA ladder\" (on the left). Gel electrophoresis shows that not only did PCR make so many copies of the DNA you can see it without a microscope, you also can now see if you're heterozygous (one bar) or homozygous (two bars), and if you're a taster (shorter strands) or not (uncut, longer strands).",
-                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in columns 4 and 5 (both mine). If not, you'd have a single band like in most of the other rows, even with my top bar if you're a non-taster or with my bottom bar if you're a homozygous taster.",
+                    "resultText": "You did it! If you are a heterozygous taster like me, you're DNA would result in the two-band pattern in columns 4 and 5 (both mine). If not, you'd have a single band like in most of the other rows, level with my top bar if you're a non-taster or with my bottom bar if you're a homozygous taster.",
                     "image": "electro.jpeg",
                     "imageHeight": "300px"
                 })
@@ -160,8 +160,9 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Thermal Cycler",
                     "image": "cycler.jpeg",
+                    "imageHeight": "380px",
                     "bodyText": "Decades ago, chemists had to do PCR by moving the solution between water baths at different temperature. Now there's a machine that can be programmed to quickly change and hold temperatures for various amounts of time.",
-                    "resultText": "PCR Complete! Using the thermal cycler PCR program, in a couple hours, a total of 35 cycles creates tens of billions times the original amount of TAS2R38!"
+                    "resultText": "PCR Complete! Using the thermal cycler PCR program, in a couple hours a total of 35 cycles creates tens of billions times the original amount of TAS2R38!"
                 })
                 break;
 
