@@ -1,4 +1,4 @@
-const Stats = ({ temp, factor, unlockTier }) => {
+const Stats = ({ temp, factor, unlockTier, onReferencesClick }) => {
     const readyForPcr = unlockTier > 1 && unlockTier < 6
 
     return <div style={{
@@ -17,9 +17,9 @@ const Stats = ({ temp, factor, unlockTier }) => {
         }}>
             {unlockTier >= 0 && unlockTier < 6 && <div>{`Solution Temperature: ${temp}ºC`}</div>}
             {readyForPcr && <div>{`Replication Factor: ${factor.toLocaleString()}x`}</div>}
-            {unlockTier == 7 && <div>Congratulations!<br />You've won... science!</div>}
+            {unlockTier == 7 && <div>You've won... science!<br /><a href="#" onClick={onReferencesClick}>Thanks and References</a></div>}
         </div>
-    </div>
+    </div >
 }
 
 export default Stats

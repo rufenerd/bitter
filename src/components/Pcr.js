@@ -256,12 +256,70 @@ const Pcr = () => {
                     })
                 }
                 break
+            case "references":
+                setSlideConfig({
+                    "headerText": "Thanks and References",
+                    "bodyText": "Special thanks to Brett Schaerer who guided me through every step of this lab!",
+                    "image": "thanks.jpg",
+                    "resultText": <div style={{
+                        fontSize: '12px'
+                    }}>
+                        <br /><br />
+                        <h3>References</h3>
+                        (2024). BI212 Labs 1-3 Combined Packet Spring 2024. Portland Community College.
+                        <br />
+                        Steven M. Carr (2024). PCR Simplified. The Polymerase Chain Reaction. Retrieved April 25, 2024, from https://www.mun.ca/biology/scarr/PCR_simplified.html
+                        <br />
+                        National Institutes of Health (2024, May 2). National Human Genome Research Institute. The Polymerase Chain Reaction. Retrieved May 5, 2024, from https://www.genome.gov/genetics-glossary/Polymerase-Chain-Reaction
+                        <br />
+                        Yakovchuk, P., Protozanova, E., & Frank-Kamenetskii, M. D. (2006). Base-stacking and base-pairing contributions into thermal stability of the DNA double helix. Nucleic Acids Research, 34 (2) 564-574 . doi:10.1093/nar/gkj454
+                        <br />
+                        John Petruska, Myron F. Goodman, Enthalpy-Entropy Compensation in DNA Melting Thermodynamics, Journal of Biological Chemistry, Volume 270, Issue 2, 1995, Pages 746-750, ISSN 0021-9258, https://doi.org/10.1074/jbc.270.2.746.
+                        <br />
+                        Khan Academy (n.d.). Biomolecules: Melting point and thermodynamics of DNA. Retrieved April 19, 2024, from https://www.khanacademy.org/test-prep/mcat/physical-sciences-practice/x04f6bc56:foundation-5-chemical-processes/e/melting-point-and-thermodynamics-of-double-stranded-dna-1
+                        <br />
+                        [Quick Biochemistry Basics]. (2020, June 7). Taq DNA polymerase [Video]. YouTube. Viewed April 25, 2024 from https://www.youtube.com/watch?v=Ai9N1fWpdd4
+                        <br />
+                        Thomas, Sneha & John. J, Georrge. (2020). Stability, Applications and Computational Studies of Thermophilic DNA Polymerase. SSRN Electronic Journal. 10.2139/ssrn.3574599.
+                        <br />
+                        (2024). Chelex 100 Molecular Biology Grade Resin. Bio Rad. Retrieved April 22, 2024, from https://www.bio-rad.com/en-us/product/chelex-100-molecular-biology-grade-resin
+                        <br />
+                        The University of Utah (n.d.). PTC The Genetics of Bitter Taste. Learn.Genetics. Retrieved April 19, 2024, from https://learn.genetics.utah.edu/content/basics/ptc
+                        <br />
+                        Nakamura M, Namiki M, Okuyama A, Koh E, Kondoh N, Takeyama M, Fujioka H, Nishimune Y, Matsumoto K, Matsuda M. Optimal temperature for synthesis of DNA, RNA, and protein by human testis in vitro. Arch Androl. 1988;20(1):41-4. doi: 10.3109/01485018808987051. PMID: 2455487.
+                        <br />
+                        “Nucleic Acid Thermodynamics.” Wikipedia, Wikimedia Foundation, 7 Mar. 2024, en.m.wikipedia.org/wiki/Nucleic_acid_thermodynamics.
+                        < br />
+                        “Denaturation(biochemistry)” Wikipedia, Wikimedia Foundation, 7 May. 2024, en.m.wikipedia.org/wiki/Denaturation_(biochemistry).
+                        < br />
+                        “TAS2R38” Wikipedia, Wikimedia Foundation, 2 May. 2024, en.m.wikipedia.org/wiki/TAS2R38.
+                        < br />
+                        <br />
+                        <br />
+                        <h4>Images, accessed 5/25/2024</h4>
+                        https://chemcollective.org/activities/tutorials/buffers/buffers3
+                        <br />https://byjus.com/biology/difference-between-dntp-and-ddntp/
+                        <br />https://www.slideserve.com/lynnrobertson/restriction-enzymes-powerpoint-ppt-presentation
+                        <br />https://www.craiyon.com/image/tV_5X8I2QqOaoC4zCcUrjQ
+                        <br />https://www.amazon.com/PCR-RT-PCR-Water-100x1-8-ml/dp/B0CH3B93TQ
+                        <br />https://www.mun.ca/biology/scarr/PCR_simplified.html
+                        <br />https://www.biorender.com/template/primer-annealing
+                        <br />https://www.biorender.com/template/pcr-extension
+                        <br />https://app.biorender.com/biorender-templates/t-656fa74b2fae29a59be5f20c
+                        <br />Brett Schaerer and Dan Rufener collaborated on photographing and filming the lab done at Portland Community College.
+                    </div >
+                })
             default:
                 break;
         }
 
         setActive(newActive)
     };
+
+    const onReferencesClick = () => {
+        setUnlockTier(8)
+        handleNewActive("references")
+    }
 
     return <div style={{ height: '100%', width: '100%', display: 'flex', alignContent: 'flex-start' }}>
         <ActionMenu
@@ -283,7 +341,7 @@ const Pcr = () => {
             }
             } videoPath={"electrophoresis.mp4"} />}
             <Slide active={active} config={slideConfig} />
-            <Stats temp={temp} factor={factor} unlockTier={unlockTier} />
+            <Stats temp={temp} factor={factor} unlockTier={unlockTier} onReferencesClick={onReferencesClick} />
         </div>
     </div >
 }
