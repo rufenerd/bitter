@@ -20,7 +20,8 @@ const Pcr = () => {
     const [temp, setTemp] = useState(20)
     const [denatured, setDenatured] = useState(false);
     const [annealed, setAnnealed] = useState(false);
-    const [shownVideo, setShownVideo] = useState(false);
+    const [shownSpinVideo, setShownSpinVideo] = useState(false);
+    const [shownElectroVideo, setShownElectroVideo] = useState(false);
 
     const reset = () => {
         setItems([])
@@ -243,8 +244,12 @@ const Pcr = () => {
             }
         />
         <div style={{ width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            {unlockTier == 6 && !shownVideo && < VideoPlayer handleVideoEnded={() => {
-                setShownVideo(true)
+            {unlockTier == 2 && !shownSpinVideo && < VideoPlayer handleVideoEnded={() => {
+                setShownSpinVideo(true)
+            }
+            } videoPath={"spin.mp4"} />}
+            {unlockTier == 6 && !shownElectroVideo && < VideoPlayer doubled handleVideoEnded={() => {
+                setShownElectroVideo(true)
                 setUnlockTier(7)
             }
             } videoPath={"electrophoresis.mp4"} />}
