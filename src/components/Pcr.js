@@ -8,7 +8,7 @@ import Stats from './Stats'
 const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState({
-        "headerText": "The Bitter Truth by Dan Rufener",
+        "headerText": "The Bitter Truth: Detecting PTC-Taster Allele",
         "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgustingly bitter or taste just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
         "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!",
         "image": "adding.jpeg",
@@ -55,7 +55,6 @@ const Pcr = () => {
 
         var bodyText;
         var image;
-        var imageHeight;
         switch (newActive) {
             case 'water':
                 setSlideConfig({
