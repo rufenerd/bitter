@@ -22,6 +22,10 @@ const Slide = ({ config }) => {
         }}>
             <img key={config.image} src={config.image} height={config.imageHeight || "400px"} width="auto" />
         </div>
+        {config.imageCitation && <div style={{
+            fontSize: '14px',
+            fontStyle: 'italic'
+        }}>{config.imageCitation}</div>}
         <div className="unselectable" style={{
             fontWeight: 'bold',
         }}>{config.resultText}</div>

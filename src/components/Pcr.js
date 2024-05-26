@@ -130,6 +130,7 @@ const Pcr = () => {
                 setSlideConfig({
                     "headerText": "Mixed and ready!",
                     "image": "pcrCycle.jpg",
+                    "imageCitation": "Edited from   https://www.mun.ca/biology/scarr/PCR_simplified.html",
                     "bodyText": "With everything mixed together properly by the centrifuge, you can now proceed with PCR.",
                     "resultText": "Get it hot to split DNA. Chill to bind primer. Heat to make copies. Repeat!"
                 })
