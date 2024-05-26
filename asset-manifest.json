@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bitter/static/css/main.0c763f22.css",
+    "main.js": "/bitter/static/js/main.f77587fc.js",
+    "static/js/453.922f150b.chunk.js": "/bitter/static/js/453.922f150b.chunk.js",
+    "static/media/logo.svg": "/bitter/static/media/logo.b28e53c71171e512d25185925edc5101.svg",
+    "index.html": "/bitter/index.html",
+    "main.0c763f22.css.map": "/bitter/static/css/main.0c763f22.css.map",
+    "main.f77587fc.js.map": "/bitter/static/js/main.f77587fc.js.map",
+    "453.922f150b.chunk.js.map": "/bitter/static/js/453.922f150b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c763f22.css",
+    "static/js/main.f77587fc.js"
+  ]
+}
