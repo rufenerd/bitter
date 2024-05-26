@@ -20,7 +20,7 @@ const Slide = ({ config }) => {
             display: 'flex',
             justifyContent: 'center'
         }}>
-            <img src={config.image} height={config.imageHeight || "400px"} width="auto" />
+            <img key={config.image} src={config.image} height={config.imageHeight || "400px"} width="auto" />
         </div>
         <div className="unselectable" style={{
             fontWeight: 'bold',
