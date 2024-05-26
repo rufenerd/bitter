@@ -11,7 +11,7 @@ const VideoPlayer = ({ doubled, videoPath, handleVideoEnded }) => {
 
     return (
         <div className="video-container">
-            <video ref={videoRef} className="fullscreen-video" autoPlay onEnded={handleVideoEnded}>
+            <video ref={videoRef} className="fullscreen-video" autoPlay onEnded={handleVideoEnded} onError={handleVideoEnded}>
                 <source src={videoPath} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
