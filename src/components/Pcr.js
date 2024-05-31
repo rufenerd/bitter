@@ -22,6 +22,8 @@ const Pcr = () => {
     const [annealed, setAnnealed] = useState(false);
     const [shownSpinVideo, setShownSpinVideo] = useState(false);
     const [shownElectroVideo, setShownElectroVideo] = useState(false);
+    const [shownChelexSpin, setShownChelexSpin] = useState(false);
+
 
     const reset = () => {
         setItems([])
@@ -134,12 +136,21 @@ const Pcr = () => {
             case 'spin':
                 if (unlockTier < 2) {
                     setUnlockTier(Math.max(unlockTier, 1.7))
-                    setSlideConfig({
-                        "headerText": "DNA is Protected!",
-                        "image": "separate.jpg",
-                        "bodyText": "After spinning in the centrifuge, you can carefully separate the lighter liquid from the heavier cell matter and Chelex bead debris on the bottom.",
-                        "resultText": "Add the other components necessary for PCR, then centrifuge again to mix."
-                    })
+                    if (!shownChelexSpin) {
+                        setSlideConfig({
+                            "headerText": "DNA is Protected!",
+                            "image": "separate.jpg",
+                            "bodyText": "After spinning in the centrifuge, you can carefully separate the lighter liquid from the heavier cell matter and Chelex bead debris on the bottom.",
+                            "resultText": "Add the other components necessary for PCR, then centrifuge again to mix."
+                        })
+                        setShownChelexSpin(true)
+                    } else {
+                        setSlideConfig({
+                            "headerText": "Another spin...",
+                            "image": "anotherSpin.jpg"
+                            "resultText": "Add the other components necessary for PCR, then centrifuge again to mix."
+                        })
+                    }
                     break;
                 } else {
                     setUnlockTier(Math.max(unlockTier, 2.5))
