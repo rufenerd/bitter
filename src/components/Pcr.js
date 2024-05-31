@@ -147,7 +147,7 @@ const Pcr = () => {
                     } else {
                         setSlideConfig({
                             "headerText": "Another spin...",
-                            "image": "anotherSpin.jpg"
+                            "image": "anotherSpin.jpg",
                             "resultText": "Add the other components necessary for PCR, then centrifuge again to mix."
                         })
                     }
