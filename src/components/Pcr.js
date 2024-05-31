@@ -9,8 +9,8 @@ const Pcr = () => {
     const [active, setActive] = useState();
     const [slideConfig, setSlideConfig] = useState({
         "headerText": "The Bitter Truth: Detecting PTC-Taster Allele",
-        "bodyText": <div><i>There's one three-millionth of your DNA code that determines whether or not these special pieces of paper taste disgustingly bitter or taste just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. HaeIII is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with HaeIII, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
-        "resultText": "Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce HaeIII and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!",
+        "bodyText": <div><i>There's one three-billionth of your DNA that codes that determines whether or not these special pieces of paper taste disgustingly bitter or taste just like normal paper. And I tested that myself using chemistry. And it was awesome.<br />I want you to share my joy.</i><br /><br />Polymerase Chain Reaction (PCR) is a technique used to make copies of a specific segment of DNA. Using PCR, you can make billions of copies of the PTC-bitterness tasting gene TAS2R38. <i>Hae</i>III is an enzyme that will cut these segments in half, but only if it is the version of the gene for "tasters"; people who can't taste PTC won't have their copies cut. By measuring the length of the chains of TAS2R38 after being mixed with <i>Hae</i>III, you can determine if the gene codes for "tasting" or "non-tasting", and also if the genome is homozygous or heterozygous.</div>,
+        "resultText": <div>Do PCR to make a billion copies by combining reagents (being mindful of the order) and then adjusting the temperature with care. Once you have a billion or more copies, introduce <i>Hae</i>III and then measure the resulting DNA-segment lengths with a techinique called gel electrophoresis, and win! Start by adding water!</div>,
         "image": "adding.jpeg",
         "imageHeight": "180px",
     });
@@ -103,7 +103,7 @@ const Pcr = () => {
             case 'polymerase':
                 setSlideConfig({
                     "headerText": "Taq Polymerase",
-                    "bodyText": "DNA polymerase is the enzyme that actually replicates DNA. In PCR, the temperature needs to be raised high enough that DNA would spontaneously break apart. Thermus aquaticus (Taq) is a heat-resistant bacteria discovered in Yellowstone's hot springs. We use Taq's polymerase in PCR due to it's heat-resistant molecular structure, streamlining the amplification process.",
+                    "bodyText": <div>DNA polymerase is the enzyme that actually replicates DNA. In PCR, the temperature needs to be raised high enough that DNA would spontaneously break apart.<i>Thermus aquaticus</i> (Taq) is a heat-resistant bacteria discovered in Yellowstone's hot springs. We use Taq's polymerase in PCR due to it's heat-resistant molecular structure, streamlining the amplification process.</div>,
                     "image": "hotsprings.jpg",
                     "resultText": "Once the temperature is right, Taq polymerase will make the DNA copies!"
                 })
@@ -137,10 +137,10 @@ const Pcr = () => {
                 break;
             case 'haeiii':
                 setSlideConfig({
-                    "headerText": "HaeIII cuts Taster Gene",
+                    "headerText": <span><i>Hae</i>III cuts Taster Gene</span>,
                     "image": "cut.png",
                     "imageHeight": "300px",
-                    "bodyText": "Bacteria and viruses don't get along. As such, both sides work hard to stop the other. One technique used by bacteria to stop viruses is to recognize foreign DNA and chop it up. HaeIII is an enzyme that finds GGCC segments and cuts them. Since \"tasters\" have GGCC in their TAS2R38 gene and \"non-tasters\" do not, we can use whether or not HaeIII cuts the segments to analyze the DNA.",
+                    "bodyText": <div>Bacteria and viruses don't get along. As such, both sides work hard to stop the other. One technique used by bacteria to stop viruses is to recognize foreign DNA and chop it up. <i>Hae</i>III is an enzyme that finds GGCC segments and cuts them. Since "tasters" have GGCC in their TAS2R38 gene and "non-tasters" do not, we can use whether or not <i>Hae</i>III cuts the segments to analyze the DNA.</div>,
                     "resultText": "You're ready to analyze the DNA with gel electrophoresis!"
                 })
                 break;
