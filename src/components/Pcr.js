@@ -34,16 +34,22 @@ const Pcr = () => {
         var newUnlockTier = 0;
         if (newItems.includes("water")) {
             newUnlockTier = 1;
-            if (["polymerase", "template", "dntp", "chelex", "primer", "buffer"].every(tierItem => newItems.includes(tierItem))) {
-                newUnlockTier = 2;
-                if (factor >= 8) {
-                    newUnlockTier = 3;
-                    if (factor >= 1000000000) {
-                        newUnlockTier = 4;
-                        if (["haeiii"].every(tierItem => newItems.includes(tierItem))) {
-                            newUnlockTier = 5;
-                            if (["electrophoresis"].every(tierItem => newItems.includes(tierItem))) {
-                                newUnlockTier = 6;
+            if (["template", "chelex"].every(tierItem => newItems.includes(tierItem))) {
+                newUnlockTier = 1.5;
+                if (["spin"].every(tierItem => newItems.includes(tierItem))) {
+                    newUnlockTier = 1.7;
+                }
+                if (["polymerase", "dntp", "primer", "buffer"].every(tierItem => newItems.includes(tierItem))) {
+                    newUnlockTier = 2;
+                    if (factor >= 8) {
+                        newUnlockTier = 3;
+                        if (factor >= 1000000000) {
+                            newUnlockTier = 4;
+                            if (["haeiii"].every(tierItem => newItems.includes(tierItem))) {
+                                newUnlockTier = 5;
+                                if (["electrophoresis"].every(tierItem => newItems.includes(tierItem))) {
+                                    newUnlockTier = 6;
+                                }
                             }
                         }
                     }
@@ -71,7 +77,7 @@ const Pcr = () => {
                         "headerText": "DNA to Copy and Analyze",
                         bodyText,
                         "image": "dnaExtract.jpeg",
-                        "resultText": "After spinning in the centrifuge, it can be separated from the other cell matter and added. Because you've added Chelex, the DNA is protected from heavy metals and enzymes that would otherwise break it down."
+                        "resultText": "Because you've added Chelex, the DNA is protected from heavy metals and enzymes that would otherwise break it down."
                     })
                 } else {
                     reset()
@@ -126,15 +132,26 @@ const Pcr = () => {
                 })
                 break;
             case 'spin':
-                setUnlockTier(Math.max(unlockTier, 2.5))
-                setSlideConfig({
-                    "headerText": "Mixed and ready!",
-                    "image": "pcrSimplified.jpg",
-                    "imageCitation": "Edited from   https://www.mun.ca/biology/scarr/PCR_simplified.html",
-                    "bodyText": "With everything mixed together properly by the centrifuge, you can now proceed with PCR.",
-                    "resultText": "Get it hot to split DNA. Chill to bind primer. Heat to make copies. Repeat!"
-                })
-                break;
+                if (unlockTier < 2) {
+                    setUnlockTier(Math.max(unlockTier, 1.7))
+                    setSlideConfig({
+                        "headerText": "DNA is Protected!",
+                        "image": "separate.jpg",
+                        "bodyText": "After spinning in the centrifuge, you can carefully separate the lighter liquid from the heavier cell matter and Chelex bead debris on the bottom.",
+                        "resultText": "Add the other components necessary for PCR, then centrifuge again to mix."
+                    })
+                    break;
+                } else {
+                    setUnlockTier(Math.max(unlockTier, 2.5))
+                    setSlideConfig({
+                        "headerText": "Mixed and ready!",
+                        "image": "pcrSimplified.jpg",
+                        "imageCitation": "Edited from   https://www.mun.ca/biology/scarr/PCR_simplified.html",
+                        "bodyText": "With everything mixed together properly by the centrifuge, you can now proceed with PCR.",
+                        "resultText": "Get it hot to split DNA. Chill to bind primer. Heat to make copies. Repeat!"
+                    })
+                    break;
+                }
             case 'haeiii':
                 setSlideConfig({
                     "headerText": <span><i>Hae</i>III cuts Taster Gene</span>,
